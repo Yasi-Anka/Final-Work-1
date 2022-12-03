@@ -23,9 +23,28 @@ void ShowArray(string[] array) // Вывести массив на консол�
     Console.WriteLine();
 }
 
-string[] NewArray(string[] array // Формирование нового массива, элементы кторого удовлетворяют условию "кол-во символов меньше или равно 3"
+string[] NewArray(string[] array) // Формирование нового массива, элементы кторого удовлетворяют условию "кол-во символов меньше или равно 3"
 {
-    
+    int size = 0;
+  for(int i = 0; i < array.Length; i++)
+  {
+     
+        if (array[i].Length < 4)
+        size = size + 1;
+
+  }  
+
+  string[] Array = new string[size];
+  int n = 0;
+  for(int i = 0; i < array.Length; i++)
+  {
+    if (array[i].Length < 4)
+    {
+        Array[n] = array[i];
+        n = n + 1;
+    }
+  }
+  return Array;
 }
 
 
@@ -35,3 +54,7 @@ int size = Convert.ToInt32(Console.ReadLine());
 string[] MyArray = Array(size);
 
 ShowArray(MyArray);
+
+string[] XArray = NewArray(MyArray);
+
+ShowArray(XArray);
